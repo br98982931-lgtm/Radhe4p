@@ -672,7 +672,21 @@ const ManagerDashboard = () => {
                 )}
 
                 {activeTab === 'dealers' && (
-                    <div className="fade-in">
+                    <div className="grid grid-2 fade-in">
+                        <div className="card">
+                            <h2>{t.manager.createDealer}</h2>
+                            <form onSubmit={createDealer}>
+                                <div className="form-group">
+                                    <label>{t.common.name}</label>
+                                    <input type="text" className="form-input" value={dealerForm.name} onChange={e => setDealerForm({ ...dealerForm, name: e.target.value })} required />
+                                </div>
+                                <div className="form-group">
+                                    <label>{t.manager.contactInfo}</label>
+                                    <input type="text" className="form-input" value={dealerForm.contactInfo} onChange={e => setDealerForm({ ...dealerForm, contactInfo: e.target.value })} />
+                                </div>
+                                <button type="submit" className="btn btn-primary">{t.common.save}</button>
+                            </form>
+                        </div>
                         <div className="card">
                             <h2>{t.manager.allDealers}</h2>
                             <div className="table-responsive">
